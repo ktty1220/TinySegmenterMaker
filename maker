@@ -66,9 +66,8 @@ class javascript(object):
         for key, value in obj.items():
             if isinstance(value, dict):
                 value = cls.tostr(value)
-            if not re.match('[a-zA-Z0-9]+', key):
-                key = key.replace("'", "\\'")
-                key = "'" + key + "'"
+            key = key.replace("'", "\\'")
+            key = "'" + key + "'"
             items.append(u"{0}:{1}".format(key, value))
         items.sort()
         return '{' + ','.join(items) + '}'
